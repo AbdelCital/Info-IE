@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingeniería Electrónica - ITSON</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;800&family=Roboto:wght@300;400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #dbeafe;
+            /* Similar al azul claro del folleto */
+        }
+
+        h1,
+        h2,
+        h3,
+        .brand-font {
+            font-family: 'Barlow', sans-serif;
+        }
+
+        .itson-blue {
+            color: #005596;
+        }
+
+        .bg-itson-blue {
+            background-color: #005596;
+        }
+
+        /* Animaciones suaves */
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Patrón de circuito de fondo sutil */
+        .circuit-pattern {
+            background-image: radial-gradient(#005596 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.05;
+        }
+    </style>
+</head>
+
+<body class="text-slate-700 relative">
+
+    <!-- Fondo decorativo -->
+    <div class="circuit-pattern fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Navegación -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-blue-100">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <img src="https://itson.mx/eventos/cibca/PublishingImages/Paginas/logos/Logo%20ITSON.png"
+                    alt="Logo ITSON" class="h-20">
+            </div>
+            <div class="hidden md:flex gap-6 text-sm font-semibold text-[#005596]">
+                <a href="#que-es" class="hover:text-blue-400 transition">¿Qué es?</a>
+                <a href="#campo" class="hover:text-blue-400 transition">Campo Laboral</a>
+                <a href="#contacto"
+                    class="px-4 py-2 bg-[#005596] text-white rounded-full hover:bg-blue-700 transition">Contacto</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
+                class="md:hidden text-[#005596]">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t p-4 space-y-3 text-center">
+            <a href="#que-es" class="block text-[#005596] font-bold">¿Qué es?</a>
+            <a href="#perfil" class="block text-[#005596] font-bold">Perfil</a>
+            <a href="#campo" class="block text-[#005596] font-bold">Campo Laboral</a>
+            <a href="#contacto" class="block text-[#005596] font-bold">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION (Portada) -->
+    <header class="relative container mx-auto px-6 py-16 md:py-24 flex flex-col md:flex-row items-center gap-10 z-10">
+        <div class="md:w-1/2 space-y-6 fade-in-up">
+            <span class="inline-block px-3 py-1 bg-blue-100 text-[#005596] text-sm font-bold rounded-full mb-2">Oferta
+                Educativa</span>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-[#005596] leading-tight">
+                INGENIERÍA <br /> <span class="text-blue-400">ELECTRÓNICA</span>
+            </h1>
+            <p class="text-xl font-light text-gray-600 border-l-4 border-[#005596] pl-4">
+                "Transforma el mundo, un circuito a la vez."
+            </p>
+            <p class="text-gray-600">
+                Descubre una carrera donde la tecnología, la creatividad y la ingeniería se unen para transformar el
+                mundo. La electrónica está detrás de cada avance que transforma nuestra manera de vivir.
+            </p>
+            <div class="flex gap-4 pt-4">
+                <a href="#contacto"
+                    class="px-6 py-3 bg-[#005596] text-white font-bold rounded-lg shadow-lg hover:bg-blue-800 transition transform hover:scale-105 flex items-center gap-2">
+                    <i data-lucide="info"></i> Solicitar Info
+                </a>
+                <a href="#que-es"
+                    class="px-6 py-3 bg-white text-[#005596] font-bold rounded-lg shadow border border-blue-200 hover:bg-blue-50 transition flex items-center gap-2">
+                    Leer más <i data-lucide="arrow-down"></i>
+                </a>
+            </div>
+        </div>
+        <div class="md:w-1/2 relative flex justify-center fade-in-up" style="animation-delay: 0.2s;">
+            <!-- Decoración gráfica animada -->
+            <div
+                class="relative w-80 h-80 md:w-96 md:h-96 bg-gradient-to-tr from-blue-200 to-blue-100 rounded-full flex items-center justify-center shadow-inner animate-pulse">
+                <div
+                    class="absolute bg-white p-6 rounded-2xl shadow-xl transform -rotate-6 hover:rotate-0 transition duration-500 z-20 top-10 left-0">
+                    <i data-lucide="cpu" class="w-12 h-12 text-red-500 mx-auto"></i>
+                    <p class="text-xs font-bold text-center mt-2 text-gray-600">Diseño de Hardware</p>
+                </div>
+                <div
+                    class="absolute bg-white p-6 rounded-2xl shadow-xl transform rotate-12 hover:rotate-0 transition duration-500 z-20 bottom-10 right-0">
+                    <i data-lucide="wifi" class="w-12 h-12 text-green-500 mx-auto"></i>
+                    <p class="text-xs font-bold text-center mt-2 text-gray-600">IoT & Telecom</p>
+                </div>
+                <!-- Icono central -->
+                <i data-lucide="zap" class="w-32 h-32 text-[#005596] z-10 drop-shadow-2xl"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECCIÓN: ¿Qué es? y Perfil (Back Left Panel) -->
+    <section id="que-es" class="bg-white py-16 relative z-10">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Columna Izquierda: Definición -->
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-bold text-[#005596] flex items-center gap-3">
+                        <i data-lucide="help-circle" class="text-blue-400"></i>
+                        ¿Qué es Ingeniería Electrónica?
+                    </h2>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Es la interacción de las computadoras con el mundo físico mediante
+                        <strong class="text-blue-600">circuitos, sensores, actuadores y dispositivos
+                            electrónicos</strong>
+                        para crear soluciones innovadoras que revolucionen el mundo.
+                    </p>
+                    <div class="bg-blue-50 p-6 rounded-xl border-l-4 border-green-400 mt-4">
+                        <h3 class="font-bold text-[#005596] mb-2">Formamos profesionales capaces de:</h3>
+                        <p class="text-sm text-gray-700">Diseñar, integrar y mejorar tecnología que transforma
+                            industrias enteras.</p>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Perfil de Ingreso -->
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-sm border border-gray-100 card-hover">
+                    <h2 class="text-2xl font-bold text-[#005596] mb-6">
+                        ¿Quiénes entran a esta carrera?
+                    </h2>
+                    <p class="text-sm text-gray-500 mb-4 font-semibold uppercase tracking-wide">Buscamos personas que
+                        tengan:</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="text-green-500 w-6 h-6 shrink-0"></i>
+                            <span class="text-gray-700">Pasión por la tecnología y la innovación.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="text-green-500 w-6 h-6 shrink-0"></i>
+                            <span class="text-gray-700">Curiosidad por entender cómo funcionan los dispositivos.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="text-green-500 w-6 h-6 shrink-0"></i>
+                            <span class="text-gray-700">Capacidad de análisis y pensamiento lógico.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="text-green-500 w-6 h-6 shrink-0"></i>
+                            <span class="text-gray-700">Gusto por resolver problemas con herramientas digitales.</span>
+                        </li>
+                    </ul>
+                    <div class="mt-6 pt-4 border-t text-center">
+                        <p class="font-bold text-[#005596]">"Si te gusta experimentar, diseñar y crear, aquí encajas
+                            perfecto."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: ¿Por qué ITSON? (Front Middle Panel) -->
+    <section class="py-16 bg-[#005596] text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-12 -mt-12 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-400/20 rounded-full -ml-12 -mb-12 blur-3xl"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">¿Por qué estudiar electrónica en ITSON?</h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-6 rounded-xl border border-white/20 hover:bg-white/20 transition">
+                    <i data-lucide="briefcase" class="w-10 h-10 mb-4 text-yellow-400"></i>
+                    <h3 class="font-bold text-xl mb-2">Alta empleabilidad</h3>
+                    <p class="text-sm text-blue-100">Rápida inserción laboral en México y el extranjero con excelentes
+                        sueldos.</p>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-6 rounded-xl border border-white/20 hover:bg-white/20 transition">
+                    <i data-lucide="award" class="w-10 h-10 mb-4 text-red-400"></i>
+                    <h3 class="font-bold text-xl mb-2">Certificaciones</h3>
+                    <p class="text-sm text-blue-100">Te ofrecemos certificaciones gratuitas en tecnologías emergentes
+                        (ORACLE).</p>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-6 rounded-xl border border-white/20 hover:bg-white/20 transition">
+                    <i data-lucide="beaker" class="w-10 h-10 mb-4 text-green-400"></i>
+                    <h3 class="font-bold text-xl mb-2">Laboratorios equipados</h3>
+                    <p class="text-sm text-blue-100">Laboratorios de punta y somos una de las 12 universidades con Lab
+                        de INTEL.</p>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center max-w-2xl mx-auto">
+                <p class="text-lg italic text-blue-200">
+                    "Si te apasiona saber cómo funcionan las cosas, crear soluciones y usar tecnología para cambiar tu
+                    entorno, <strong class="text-white">esta carrera es para ti.</strong>"
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: Imagen de Presentación -->
+    <section class="py-16 container mx-auto px-6 bg-blue-50">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-[#005596] mb-4">¿Electrónica o Mecatrónica?</h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                Descubre cómo se complementan y distinguen estas dos grandes ingenierías.
+                Mientras comparten una sólida base científica, la <strong class="text-blue-600">Ingeniería
+                    Electrónica</strong>
+                se especializa en la creación de <strong>sistemas digitales, telecomunicaciones y energías
+                    renovables</strong>,
+                siendo el motor detrás de la Inteligencia Artificial y los semiconductores.
+            </p>
+        </div>
+        <div class="flex justify-center">
+            <div
+                class="bg-white p-4 rounded-2xl shadow-xl max-w-4xl transform hover:scale-[1.01] transition-transform duration-300">
+                <img src="Presentación IE (1).png" alt="Diagrama comparativo: Ingeniería Electrónica vs Mecatrónica"
+                    class="w-full h-auto rounded-lg">
+                <p class="text-center text-sm text-gray-500 mt-4 italic">
+                    Diagrama de áreas de especialización y tronco común entre ambas disciplinas.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: Campo Laboral y Especialidades (Back Middle Panel) -->
+    <section id="campo" class="py-16 container mx-auto px-6">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-[#005596]">¿Dónde puedo trabajar?</h2>
+            <p class="text-gray-600 mt-2">El campo es amplio y diversificado</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10 items-center mb-16">
+            <div>
+                <ul class="space-y-3 text-gray-700">
+                    <li class="flex items-center gap-2"><i data-lucide="factory" class="text-gray-400"></i> Industrias
+                        manufactureras, mineras y automotrices.</li>
+                    <li class="flex items-center gap-2"><i data-lucide="radio-tower" class="text-gray-400"></i> Empresas
+                        de telecomunicaciones.</li>
+                    <li class="flex items-center gap-2"><i data-lucide="zap-off" class="text-gray-400"></i> Empresas de
+                        eficiencia energética.</li>
+                    <li class="flex items-center gap-2"><i data-lucide="bot" class="text-gray-400"></i> Desarrollo de
+                        sistemas inteligentes y automatización.</li>
+                </ul>
+
+                <!-- Logos -->
+                <div class="mt-8">
+                    <p class="text-sm font-bold text-gray-400 mb-3">NUESTROS EGRESADOS TRABAJAN EN:</p>
+                    <div class="flex flex-wrap items-center gap-4 opacity-70">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/85/Intel_logo_2023.svg"
+                            alt="Logo de INTEL" class="h-8 w-auto">
+                        <img src="https://images.icon-icons.com/2699/PNG/512/tesla_logo_icon_167878.png"
+                            alt="Logo de TESLA" class="h-8 w-auto">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Logo_neutral_de_la_Comisi%C3%B3n_Federal_de_Electricidad.svg/1600px-Logo_neutral_de_la_Comisi%C3%B3n_Federal_de_Electricidad.svg.png"
+                            alt="Logo de CFE" class="h-8 w-auto">
+                        <img src="https://images.icon-icons.com/2699/PNG/512/huawei_logo_icon_170010.png"
+                            alt="Logo de HUAWEI" class="h-8 w-auto">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png"
+                            alt="Logo de GOOGLE" class="h-8 w-auto">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Especialidades Grid -->
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-blue-100">
+                <h3 class="text-xl font-bold text-[#005596] mb-6 text-center">¿En qué me puedo especializar?</h3>
+                <div class="grid grid-cols-2 gap-4 text-center">
+                    <button onclick="openModal('telecom')"
+                        class="p-3 hover:bg-blue-50 rounded-lg transition cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-blue-300 group hover:shadow-md hover:scale-105">
+                        <i data-lucide="radio"
+                            class="mx-auto text-purple-500 mb-2 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-bold text-gray-700 block">Telecomunicaciones</span>
+                    </button>
+                    <button onclick="openModal('renovables')"
+                        class="p-3 hover:bg-blue-50 rounded-lg transition cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-blue-300 group hover:shadow-md hover:scale-105">
+                        <i data-lucide="sun"
+                            class="mx-auto text-yellow-500 mb-2 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-bold text-gray-700 block">Energías Renovables</span>
+                    </button>
+                    <button onclick="openModal('embebidos')"
+                        class="p-3 hover:bg-blue-50 rounded-lg transition cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-blue-300 group hover:shadow-md hover:scale-105">
+                        <i data-lucide="cpu"
+                            class="mx-auto text-green-600 mb-2 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-bold text-gray-700 block">Sistemas Embebidos</span>
+                    </button>
+                    <button onclick="openModal('automatizacion')"
+                        class="p-3 hover:bg-blue-50 rounded-lg transition cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-blue-300 group hover:shadow-md hover:scale-105">
+                        <i data-lucide="settings"
+                            class="mx-auto text-orange-500 mb-2 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-bold text-gray-700 block">Automatización</span>
+                    </button>
+                    <!-- Nueva especialización: Mantenimiento -->
+                    <button onclick="openModal('mantenimiento')"
+                        class="p-3 hover:bg-blue-50 rounded-lg transition cursor-pointer w-full col-span-2 focus:outline-none focus:ring-2 focus:ring-blue-300 group hover:shadow-md hover:scale-105">
+                        <i data-lucide="wrench"
+                            class="mx-auto text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-bold text-gray-700 block">Mantenimiento</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: Internacionalización (Back Right Panel) -->
+    <section class="bg-blue-50 py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1">
+                    <!-- Banderas de países con convenios o destinos populares -->
+                    <div class="flex gap-4 justify-center md:justify-start mb-6">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg"
+                            alt="Bandera de Canadá" class="w-12 h-8 object-cover rounded shadow-sm" title="Canadá">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg"
+                            alt="Bandera de Estados Unidos" class="w-12 h-8 object-cover rounded shadow-sm"
+                            title="Estados Unidos">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Spain.svg"
+                            alt="Bandera de España" class="w-12 h-8 object-cover rounded shadow-sm" title="España">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Flag_of_Japan.svg"
+                            alt="Bandera de Japón" class="w-12 h-8 object-cover rounded shadow-sm" title="Japón">
+                    </div>
+                    <h3 class="text-2xl font-bold text-[#005596] mb-4">Estudia aquí... y en el mundo</h3>
+                    <p class="text-gray-700 mb-4">
+                        La carrera ofrece movilidad académica en universidades nacionales, instituciones internacionales
+                        y centros de investigación.
+                    </p>
+                    <p class="text-sm text-gray-600 italic">
+                        "La electrónica no tiene fronteras. Tu formación tampoco."
+                    </p>
+                </div>
+                <div class="order-1 md:order-2 bg-white p-6 rounded-xl shadow-md border-l-4 border-[#005596]">
+                    <h3 class="text-xl font-bold text-[#005596] mb-2">¡Aprende en la industria!</h3>
+                    <p class="text-sm text-gray-600 mb-4">Realiza tu práctica profesional en empresas del sector
+                        industrial y tecnológico.</p>
+                    <ul class="text-sm space-y-2 text-gray-700">
+                        <li>• Integrarte al mundo laboral real.</li>
+                        <li>• Desarrollar proyectos reales.</li>
+                        <li>• Conectar con empleadores para futuras oportunidades.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: Contacto y Footer (Front Right Panel) -->
+    <section id="contacto" class="bg-[#005596] text-white py-16 relative">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6">ITSON - Ingeniería Electrónica</h2>
+                    <p class="mb-8 text-blue-100">
+                        Formamos profesionales capaces de diseñar, integrar y mejorar tecnología que transforma
+                        industrias enteras.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-white/20 p-2 rounded-full"><i data-lucide="mail"></i></div>
+                            <a href="mailto:ie@itson.edu.mx" class="hover:text-blue-200 transition">ie@itson.edu.mx</a>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="bg-white/20 p-2 rounded-full"><i data-lucide="phone"></i></div>
+                            <span>(644) 410-9000 Ext. 1757</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="bg-white/20 p-2 rounded-full"><i data-lucide="globe"></i></div>
+                            <a href="https://www.itson.mx" target="_blank"
+                                class="hover:text-blue-200 transition">www.itson.mx</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- QR Code Section -->
+                <div class="bg-white text-slate-800 p-8 rounded-2xl shadow-2xl text-center">
+                    <h3 class="font-bold text-xl mb-6 text-[#005596]">Escanea para más información</h3>
+                    <div class="flex justify-center gap-8">
+                        <div class="text-center">
+                            <!-- QR Oferta Educativa -->
+                            <div class="qr-container">
+                                <h3>Oferta educativa</h3>
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.itson.mx/oferta"
+                                    alt="QR Oferta Educativa" width="100" height="100">
+                            </div>
+                            <!-- <p class="text-xs font-bold uppercase">Oferta Educativa</p> -->
+                        </div>
+                        <div class="text-center">
+                            <!-- QR Admisiones -->
+                            <div class="qr-container">
+                                <h3>Admisiones</h3>
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.itson.mx/admisiones"
+                                    alt="QR Admisiones" width="100" height="100">
+                            </div>
+                            <!-- <p class="text-xs font-bold uppercase">Admisiones</p> -->
+                        </div>
+                    </div>
+                    <!-- <a href="https://www.itson.mx/admisiones" target="_blank"
+                        class="block mt-6 w-full py-3 bg-red-500 text-white font-bold rounded hover:bg-red-600 transition">
+                        Ir al portal de Admisiones
+                    </a> -->
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-blue-300 text-xs mt-16 pt-8 border-t border-blue-800">
+            <p>Basado en la información oficial del folleto de Ingeniería Electrónica - ITSON.</p>
+        </div>
+    </section>
+
+    <script>
+        // Inicializar iconos
+        lucide.createIcons();
+
+        // Smooth Scroll para navegación interna
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+    <!-- Modal de Información Mejorado -->
+    <div id="infoModal" class="fixed inset-0 z-50 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!-- Backdrop con desenfoque -->
+        <div class="fixed inset-0 bg-gray-900/60 backdrop-blur-sm transition-opacity opacity-0" id="modalBackdrop">
+        </div>
+
+        <!-- Contenedor centrado -->
+        <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+
+                <!-- Panel del Modal -->
+                <div id="modalPanel"
+                    class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-lg scale-95 opacity-0">
+
+                    <!-- Imagen de Cabecera -->
+                    <div class="relative h-48 w-full overflow-hidden">
+                        <img id="modalImage" src="" alt="Imagen de especialidad"
+                            class="h-full w-full object-cover transition-transform duration-700 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <button onclick="closeModal()"
+                            class="absolute top-4 right-4 rounded-full bg-black/20 p-1 text-white hover:bg-black/40 transition-colors backdrop-blur-md">
+                            <i data-lucide="x" class="w-6 h-6"></i>
+                        </button>
+                        <h3 id="modalTitle" class="absolute bottom-4 left-6 text-2xl font-bold text-white shadow-sm">
+                        </h3>
+                    </div>
+
+                    <!-- Contenido -->
+                    <div class="px-6 py-6">
+                        <p id="modalDescription" class="text-gray-600 text-sm leading-relaxed mb-6"></p>
+
+                        <h4 class="text-sm font-bold text-blue-900 uppercase tracking-wide mb-3">Lo que aprenderás:</h4>
+                        <ul id="modalFeatures" class="space-y-3 mb-8">
+                            <!-- Las viñetas se generarán aquí con JS -->
+                        </ul>
+
+                        <button onclick="closeModal()"
+                            class="w-full bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg hover:shadow-blue-500/30 transform active:scale-95 flex items-center justify-center gap-2">
+                            <span>Entendido, ¡me interesa!</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Datos enriquecidos de las especializaciones
+        const specializations = {
+            telecom: {
+                title: "Telecomunicaciones",
+                description: "Conviértete en el arquitecto de la conectividad global. Diseñarás y gestionarás las redes que mantienen al mundo unido, desde fibra óptica hasta satélites.",
+                image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80",
+                features: [
+                    "Redes de Fibra Óptica y 5G",
+                    "Comunicaciones Satelitales",
+                    "Ciberseguridad en redes",
+                    "Internet de las Cosas (IoT)"
+                ]
+            },
+            renovables: {
+                title: "Energías Renovables",
+                description: "Lidera la revolución verde. Aprenderás a implementar y optimizar sistemas de energía limpia para un futuro sostenible y eficiente.",
+                image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&q=80",
+                features: [
+                    "Sistemas Fotovoltaicos (Solar)",
+                    "Energía Eólica y Biomasa",
+                    "Auditoría Energética",
+                    "Sustentabilidad Industrial"
+                ]
+            },
+            embebidos: {
+                title: "Sistemas Embebidos",
+                description: "Crea el cerebro de las máquinas. Desarrollarás hardware y software integrado para dispositivos inteligentes, desde autos autónomos hasta equipos médicos.",
+                image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+                features: [
+                    "Programación de Microcontroladores",
+                    "Diseño de PCBs",
+                    "Inteligencia Artificial en el Borde (Edge AI)",
+                    "Robótica Móvil"
+                ]
+            },
+            automatizacion: {
+                title: "Automatización",
+                description: "Impulsa la Industria 4.0. Dominarás la robótica y los sistemas de control para hacer que las fábricas sean más inteligentes y productivas.",
+                image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
+                features: [
+                    "Programación de PLCs",
+                    "Robótica Industrial",
+                    "Instrumentación Virtual",
+                    "Control de Procesos"
+                ]
+            },
+            mantenimiento: {
+                title: "Mantenimiento Industrial",
+                description: "Asegura que el mundo no se detenga. Serás el experto en diagnóstico y gestión para mantener la maquinaria industrial operando al máximo rendimiento.",
+                image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80",
+                features: [
+                    "Mantenimiento Predictivo y Correctivo",
+                    "Gestión de Activos",
+                    "Termografía y Vibraciones",
+                    "Seguridad Industrial"
+                ]
+            }
+        };
+
+        function openModal(key) {
+            const modal = document.getElementById('infoModal');
+            const backdrop = document.getElementById('modalBackdrop');
+            const panel = document.getElementById('modalPanel');
+            const data = specializations[key];
+
+            // Llenar datos básicos
+            document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('modalDescription').innerText = data.description;
+            document.getElementById('modalImage').src = data.image;
+
+            // Generar lista de características
+            const featuresList = document.getElementById('modalFeatures');
+            featuresList.innerHTML = ''; // Limpiar lista anterior
+
+            data.features.forEach(feature => {
+                const li = document.createElement('li');
+                li.className = "flex items-center text-sm text-gray-600";
+                li.innerHTML = `
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3">
+                                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                            </span>
+                            ${feature}
+                        `;
+                featuresList.appendChild(li);
+            });
+
+            // Refrescar iconos
+            lucide.createIcons();
+
+            // Mostrar y animar
+            modal.classList.remove('hidden');
+            // Pequeño delay para permitir renderizado
+            setTimeout(() => {
+                backdrop.classList.remove('opacity-0');
+                panel.classList.remove('opacity-0', 'scale-95');
+                panel.classList.add('opacity-100', 'scale-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('infoModal');
+            const backdrop = document.getElementById('modalBackdrop');
+            const panel = document.getElementById('modalPanel');
+
+            // Animar salida
+            backdrop.classList.add('opacity-0');
+            panel.classList.remove('opacity-100', 'scale-100');
+            panel.classList.add('opacity-0', 'scale-95');
+
+            // Ocultar después de la animación
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Cerrar al hacer clic fuera
+        document.getElementById('infoModal').addEventListener('click', function (e) {
+            // Verificamos si el clic fue en el contenedor wrapper (fuera del panel)
+            if (e.target.closest('#modalPanel') === null) {
+                closeModal();
+            }
+        });
+
+        lucide.createIcons();
+    </script>
+
+</body>
+
+</html>
